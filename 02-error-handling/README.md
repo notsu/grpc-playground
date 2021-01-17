@@ -24,7 +24,5 @@ docker-compose up
 
 ## Table of Contents
 
-1. Unary
-2. Streaming on the server
-3. Streaming on the client
-4. Bi-direction streaming
+1. gRPC status and code
+2. Custom error message
