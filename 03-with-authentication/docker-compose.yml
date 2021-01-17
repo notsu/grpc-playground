@@ -1,0 +1,26 @@
+version: "3.5"
+
+services:
+  ping:
+    build:
+      context: .
+      dockerfile: ./ping-service/Dockerfile
+    container_name: 03-with-authentication-ping
+    volumes:
+      - ./ping-service:/src/app
+    working_dir: /src/app
+    command: sh -c "reflex -r '(go\.mod&&|\.go$$)' -s go run ."
+    depends_on:
+      - pong
+
+  pong:
+    build:
+      context: .
+      dockerfile: ./pong-service/Dockerfile
+    container_name: 03-with-authentication-pong
+    volumes:
+      - ./pong-service:/src/app
+    ports:
+      - 9000:9000
+    working_dir: /src/app
+    command: sh -c "reflex -r '(go\.mod&&|\.go$$)' -s go run ."
