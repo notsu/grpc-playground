@@ -35,6 +35,8 @@ func sayHello(ctx context.Context, c client.GreeterClient) {
 	if err != nil {
 		s := status.Convert(err)
 
+		log.Printf("Status: %s", s.Code())
+
 		for _, d := range s.Details() {
 			switch info := d.(type) {
 			case *client.Error:

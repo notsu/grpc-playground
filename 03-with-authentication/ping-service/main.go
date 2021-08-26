@@ -64,6 +64,6 @@ func sayHello(ctx context.Context, c client.GreeterClient) {
 
 func fetchToken() *oauth2.Token {
 	return &oauth2.Token{
-		AccessToken: "some-secret-tokenๅ",
+		AccessToken: "some-secret-token",
 	}
 }

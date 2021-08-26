@@ -26,9 +26,14 @@ func (s *Server) SayHello(ctx context.Context, r *proto.HelloRequest) (*proto.He
 		Code:    100,
 		Message: "Something wrong na ja",
 	})
+
+	ddt, err := dt.WithDetails(&proto.Error{
+		Code:    200,
+		Message: "Something wrong na ja 2",
+	})
 	if err != nil {
 		return nil, st.Err()
 	}
 
-	return nil, dt.Err()
+	return nil, ddt.Err()
 }

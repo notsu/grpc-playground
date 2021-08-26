@@ -48,7 +48,7 @@ func sayHello(ctx context.Context, c client.GreeterClient) {
 
 	// Header
 	if t, ok := header["timestamp"]; ok {
-		log.Println("timestamp from header:")
+		log.Println("timestamp from server header:")
 		for i, e := range t {
 			log.Printf(" %d. %s\n", i, e)
 		}
@@ -56,7 +56,7 @@ func sayHello(ctx context.Context, c client.GreeterClient) {
 		log.Fatal("timestamp expected but doesn't exist in header")
 	}
 	if l, ok := header["location"]; ok {
-		log.Println("location from header:")
+		log.Println("location from server header:")
 		for i, e := range l {
 			log.Printf(" %d. %s\n", i, e)
 		}
@@ -68,7 +68,7 @@ func sayHello(ctx context.Context, c client.GreeterClient) {
 
 	// Trailer
 	if t, ok := trailer["timestamp"]; ok {
-		log.Println("timestamp from trailer:")
+		log.Println("timestamp from server trailer:")
 		for i, e := range t {
 			log.Printf(" %d. %s\n", i, e)
 		}

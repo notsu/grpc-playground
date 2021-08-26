@@ -36,7 +36,7 @@ func (s *Server) SayHello(ctx context.Context, r *proto.HelloRequest) (*proto.He
 		return nil, status.Errorf(codes.DataLoss, "SayHello: failed to get metadata")
 	}
 	if t, ok := md["timestamp"]; ok {
-		log.Println("timestamp from metadata:")
+		log.Println("timestamp from client metadata:")
 		for i, e := range t {
 			log.Printf(" %d. %s\n", i, e)
 		}
